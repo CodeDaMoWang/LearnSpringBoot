@@ -1,0 +1,139 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>少数派</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        p{
+            display: inline;
+        }
+        .pic img{
+            height: 100px;
+            width: 200px;
+        }
+        .title{
+            font-size: 25px;;
+        }
+        .content{
+            padding-top: 17px;
+        }
+        .pic img{
+            height: 150px;;
+            width: 270px;;
+        }
+        .logo{
+            margin-left: 400px;
+            margin-top: 0px;
+        }
+        .cen{
+            font-size: 31px;
+            text-align:center;
+            color: white;
+            margin-left: 200px;
+        }
+        .b{
+            width: 300px;
+            height: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="logo" href="#" >
+                <img src="logo.png">
+            </a>
+        </div>
+        <p class="cen">#新玩意</p>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">
+                <span class="glyphicon glyphicon-user">
+                </span>
+
+            </a>
+            </li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active" style="margin-left: 460px "><a href="#">新玩意</a></li>
+    <li role="presentation"><a href="#">付费栏目</a></li>
+    <li role="presentation"><a href="#">Matrix</a></li>
+    <li role="presentation"><a href="#">专题广场</a></li>
+    <li role="presentation"><a href="#">热门文章</a></li>
+    <li role="presentation"><a href="#">应用推荐</a></li>
+    <li role="presentation"><a href="#">生活方式</a></li>
+    <li role="presentation"><a href="#">正版软件</a></li>
+</ul>
+
+
+<div class="media">
+    <div class="media-body">
+        <div class="container">
+            <div class="alert alert-success" th:each="author:${authorList}" style="background: white;margin-left: 150px;"  >
+
+                <div class="top">
+                    <div class="media">
+                        <div class="media-left">
+                            <img th:src="@{${author.avatar}}" style="height: 50px;width:50px;border-radius: 70%;">
+                        </div>
+                        <div class="media-body">
+                            <p class="media-heading" th:text="${author.name}" ></p>
+                            <div th:text="${author.date}"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+                    <div class="media" >
+
+                        <div class="media-left">
+                            <div class="title">
+                                <p th:text="${author.title}"></p>
+                            </div>
+                            <div class="content">
+                                <p th:text="${author.text}"></p>
+                            </div>
+                        </div>
+                        <div class="media-right">
+                            <div>
+                                <div class="pic">
+                                    <img th:src="@{${author.preview}}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="media-body"  >
+        <div class="b" >
+            <div class="alert alert-success" th:each="author:${authorList}"style="background: white;">
+                <div class="pic">
+                    <img th:src="@{${author.preview}}">
+                </div>
+                <div>
+                    <div class="title">
+                        <p th:text="${author.text}"}></p>
+                    </div>
+                    <div class="content">
+                        <p th:text="${author.title}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
